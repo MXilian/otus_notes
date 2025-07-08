@@ -1,16 +1,41 @@
-# otus_notes
+# Otus Notes
 
-A new Flutter project.
+Простое одностраничное приложение для ведения заметок.
 
-## Getting Started
+## Архитектура и стек
 
-This project is a starting point for a Flutter application.
+Т.к. приложение простое, в нем только 2 слоя:
 
-A few resources to get you started if this is your first Flutter project:
+* **Domain:**
+    * `NotesHandler` - управляет списком заметок, хранит в оперативной памяти.
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
+* **Presentation:** :
+    * `NotesScreen` - страница с заметками.
+    * `NotesList` - виджет списка заметок.
+    * `NoteItem` - одна заметка в списке.
+    * `AddNoteSheet` — форма создания новой заметки.
 
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Внедрение зависимостей и управление состоянием реализованы через пакет `provider`.
+
+## Запуск и развертывание
+
+#### 1. Самостоятельное развертывание
+
+```bash
+# Клонировать репозиторий
+git clone https://github.com/MXilian/otus_notes.git
+
+# Установить зависимости
+flutter pub get
+
+# Запустить приложение
+flutter run
+```
+
+*Примечание*: Приложение не тестировалось на Windows и macOS из-за отсутствия нужных устройств, но должно работать.
+
+#### 2. Готовая сборка
+
+Если не хочется разворачивать локально, можно установить готовый APK-файл для Android.
+
+[Скачать APK](releases/app-release.apk)
